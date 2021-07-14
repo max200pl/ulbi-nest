@@ -10,7 +10,7 @@ interface UserCreationAttrs {
 
 //  generic
 @Table({ tableName: "users" })
-export class User extends Model<User> {
+export class User extends Model<User, UserCreationAttrs> {
   @ApiProperty({ example: "1", description: "Уникальный идентификатор " })
   @Column({
     type: DataType.INTEGER, // тип поля INTEGER
