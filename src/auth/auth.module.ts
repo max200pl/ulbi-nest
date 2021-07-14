@@ -1,5 +1,5 @@
 import { UsersModule } from "./../users/users.module";
-import { Module } from "@nestjs/common";
+import { forwardRef, Module } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { AuthController } from "./auth.controller";
 import { JwtModule } from "@nestjs/jwt";
@@ -9,6 +9,7 @@ import { JwtModule } from "@nestjs/jwt";
   controllers: [AuthController],
   imports: [
     UsersModule,
+    forwardRef(() => UsersModule),
     JwtModule.register({
       // зарегистрировали модуль
       // авторизация через JwtModule
@@ -19,5 +20,6 @@ import { JwtModule } from "@nestjs/jwt";
       },
     }),
   ],
+  exports: [AuthModule, JwtModule],
 })
 export class AuthModule {}
