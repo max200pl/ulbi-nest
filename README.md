@@ -31,6 +31,7 @@ $ npm run start:prod
 npm i @nestjs/jwt bcryptjs  //модуль для работы с jwt token
 npm i bcryptjs // модуль для шифрования паролей
 npm i @nestjs/swagger swagger-ui-express // swagger
+npm class-validator class-transformer
 ```
 
 ## Test
